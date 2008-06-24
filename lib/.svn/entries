@@ -1,0 +1,40 @@
+8
+
+dir
+5
+http://intridea.unfuddle.com/svn/intridea_asee/trunk/vendor/plugins/rank_fu/lib
+http://intridea.unfuddle.com/svn/intridea_asee
+
+
+
+2008-06-24T19:57:39.583715Z
+5
+simon
+
+
+svn:special svn:externals svn:needs-lock
+
+role.rb
+file
+
+
+
+
+2008-06-24T17:04:14.000000Z
+52e43698040de00820579c5035394a97
+2008-06-24T19:57:39.583715Z
+5
+simon
+
+rank_fu.rb
+file
+
+
+
+
+2008-06-24T17:04:14.000000Z
+0c6e76fbce9ee83b4b32292dd4fb74ea
+2008-06-24T19:57:39.583715Z
+5
+simon
+

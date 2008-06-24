@@ -1,0 +1,28 @@
+8
+
+dir
+5
+http://intridea.unfuddle.com/svn/intridea_asee/trunk/vendor/plugins/rank_fu/tasks
+http://intridea.unfuddle.com/svn/intridea_asee
+
+
+
+2008-06-24T19:57:39.583715Z
+5
+simon
+
+
+svn:special svn:externals svn:needs-lock
+
+rank_fu_tasks.rake
+file
+
+
+
+
+2008-06-24T17:04:14.000000Z
+9358d79b732c3681963bda3e4f90811c
+2008-06-24T19:57:39.583715Z
+5
+simon
+

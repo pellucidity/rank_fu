@@ -1,0 +1,13 @@
+RankFu
+======
+
+RankFu is a plugin that allows you to add expressive user roles to your Rails App.
+
+
+Example
+=======
+
+Now it's easy to have separate moderators and admins, and define a role as a superset of another.
+
+
+Copyright (c) 2008 Simon Parsons of Intridea, released under the MIT license
