@@ -4,11 +4,13 @@ module RankFu
   end
   
   module ClassMethods     
-    def knows_rank_fu       
+    def knows_rank_fu     
+      Role.find(:first) rescue return    #HACK!
+         
       instance_eval do   
         include InstanceMethods
-      end 
-      
+      end     
+                                                                                                          
       Role.find(:all).map(&:key).each do |role|
         class_eval do
           define_method "find_#{role.pluralize}" do; Role.find(:all) end
@@ -16,8 +18,8 @@ module RankFu
         instance_eval do
           define_method "#{role}?" do;          self.has_role?(role) end 
           define_method "#{role}_exactly?" do;  self.has_role_without_set?(role) end 
-          define_method "make_#{role}?" do;     self.has_role?(role) end          
-          define_method "remove_#{role}?" do;   self.does_not_have_role?(role) end
+          define_method "make_#{role}" do;     self.has_role(role) end          
+          define_method "remove_#{role}" do;   self.does_not_have_role(role) end
         end          
       end  
       
@@ -45,7 +47,7 @@ module RankFu
     def has_role(role)
       role = ensure_role(role)       
       role.set_mates.each{|set_mate| self.does_not_have_role set_mate} if role.set?  
-      self.update_attribute(:role, self.role | role.value);self
+      self.update_attribute(:role, (self.role || 0 ) | role.value);self
     end    
 
     def ensure_role(role_key_or_name)
@@ -55,7 +57,7 @@ module RankFu
       self.update_attribute(:role, self.role ^ (self.role & ensure_role(role).value)); self end 
 
     def roles
-      Role.find(:all).select{|role| self.role & role.value > 0}.map(&:key) end 
+      Role.find(:all).select{|role| (self.role & role.value) > 0}.map(&:key) rescue [] end 
 
     def modifiers 
       Role.find(:all, :conditions => {:is_modifier => true}).select{|role| (self.role & role.value) > 0}.sort end
