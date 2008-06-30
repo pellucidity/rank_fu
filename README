@@ -29,11 +29,28 @@ Example
            
 After installing this plugin, you'll want to start by performing some admin:
 
-    #SETUP HERE#                                                     
+    script/generate rank_fu user
+	script/generate rank_fu roles 		#create migration for roles
+                                                         
 
 After that, you'll probably want to add roles to your user model, so just add this line:
 
-	knows_rank_fu
+	knows_rank_fu  
+	
+Then you need to create some roles. I suggest using the excellent db:populate rake task so you can do something like this: 
+
+	Role.destroy_all
+	roles = [ {:id => 1, :key => "root",      :name=> "Superuser", :value => 2**22, :set => 1},
+	          {:id => 2, :key => "admin",     :name=> "Administrator", :value => 2**21, :set => 1},
+	          {:id => 3, :key => "moderator", :name=> "Editor", :value => 2**20, :set => 1},     
+	          {:id => 5, :key => "member",    :name=> "Member", :value => 2**10, :is_default => true}]
+
+	roles.each do |role|                          
+	   Role.create role
+	end    
+
+NOTE: It is essential that the values be powers of two. RankFu uses bitwise math internally.	
+
 
 Now you can do the following: 
 
@@ -50,7 +67,7 @@ There is also some sugar for disabling users, to make your code more readable. T
     User#enable_user
     User#enabled?    
 
-Todo
+TODO
 ====
 
 Specs. Benchmarks.
