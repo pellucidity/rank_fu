@@ -20,8 +20,8 @@ Another Disclaimer
 This plugin meets our simple needs, and has been extracted because we've needed the functionality several times, but it is by no means complete. 
 
 If you encounter bugs or gaping holes in functionality , please contact me using my first name at my company, and I'll see what I can do.
-    
 
+RankFu uses Rails 2.1 style migrations. It shouldn't be too hard to create migrations manually if you are using <2.1.0.    
 
 
 Example
@@ -48,7 +48,12 @@ There is also some sugar for disabling users, to make your code more readable. T
  
     User#disable_user 
     User#enable_user
-    User#enabled?
+    User#enabled?    
+
+Todo
+====
+
+Specs. Benchmarks.
 
 
 Resources
