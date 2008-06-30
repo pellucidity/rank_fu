@@ -1,13 +1,57 @@
 RankFu
 ======
 
-RankFu is a plugin that allows you to add expressive user roles to your Rails App.
+RankFu is a plugin that allows you to add expressive user roles to your Rails App. 
+
+Now it's easy to have separate moderators and admins, and define a role as a superset of another.            
+
+
+Disclaimer
+=========
+
+This plugin is provided as is - therefore, the creators and contributors of this plugin are not responsible for any damages that may result from it's usage.  
+
+Use at your own risk; backup your data.
+
+
+Another Disclaimer
+==================
+
+This plugin meets our simple needs, and has been extracted because we've needed the functionality several times, but it is by no means complete. 
+
+If you encounter bugs or gaping holes in functionality , please contact me using my first name at my company, and I'll see what I can do.
+    
+
 
 
 Example
 =======
+           
+After installing this plugin, you'll want to start by performing some admin:
 
-Now it's easy to have separate moderators and admins, and define a role as a superset of another.
+    #SETUP HERE#                                                     
+
+After that, you'll probably want to add roles to your user model, so just add this line:
+
+	knows_rank_fu
+
+Now you can do the following: 
+
+    User#has_role? 
+    User#has_role
+	User#"#{role}?"
+ 	User#"#{role}_exactly?"   #This forces an exact comparison, useful if you want to test for a role which has a superset (e.g. moderators and  administrators)
+	User#"make_#{role}          
+	User#"remove_#{role}" 
+
+There is also some sugar for disabling users, to make your code more readable. These examples assume the existence of a role with :disabled as its key:
+ 
+    User#disable_user 
+    User#enable_user
+    User#enabled?
 
 
-Copyright (c) 2008 Simon Parsons of Intridea, released under the MIT license
+Resources
+=========
+
+Copyright (c) 2008 Simon Parsons of Intridea (http://www.intridea.com), released under the MIT license
