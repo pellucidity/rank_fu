@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  validates_presence_of :name, :value
+  validates_presence_of :key, :value
 
   def self.types(this_key=nil)
     return self.type(this_key) if this_key

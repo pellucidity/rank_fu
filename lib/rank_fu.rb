@@ -84,31 +84,3 @@ module RankFu
   end 
   
 end 
-
-
-
-# if method.to_s.match(/^(.*)\?$/) && Role.role_exists?($1)          
-#   self.has_role?($1.to_sym)  
-# elsif method.to_s.match(/^(.*)_exactly\?$/) && Role.role_exists?($1)          
-#   self.has_role_without_set?($1.to_sym)                 
-# elsif method.to_s.match(/^make_(.*)$/) && Role.role_exists?($1)          
-#   self.has_role($1.to_sym)  
-# elsif method.to_s.match(/^remove_(.*)$/) && Role.role_exists?($1)          
-#   self.does_not_have_role($1.to_sym)                  
-# else
-#   method_missing_without_roles(method,*args)
-# end             
-
-# def disable_user                 
-#   has_role(:disabled) end
-# 
-# def enable_user                                                
-#   does_not_have_role(:disabled)  end 
-# alias :make_enabled :enable_user
-# 
-# def disabled?
-#   has_role?(:disabled) end
-#   
-# def enabled?                           
-#   !has_role?(:disabled) end  
-
